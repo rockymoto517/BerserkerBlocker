@@ -1,0 +1,61 @@
+{
+	"menu_id" : "berserkerQOL_menu",
+	"parent_menu_id" : "blt_options",
+	"title" : "berserkerQOL_menu",
+	"description" : "berserkerQOL_menu_desc",
+	"items" : [
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_cc",
+			"title" : "berserkerQOL_cc_title",
+			"description" : "berserkerQOL_cc_desc",
+			"callback" : "berserkerQOL_callback_cc",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_cc_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_maniac",
+			"title" : "berserkerQOL_maniac_title",
+			"description" : "berserkerQOL_maniac_desc",
+			"callback" : "berserkerQOL_callback_maniac",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_maniac_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_hacker",
+			"title" : "berserkerQOL_hacker_title",
+			"description" : "berserkerQOL_hacker_desc",
+			"callback" : "berserkerQOL_callback_hacker",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_hacker_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_tt",
+			"title" : "berserkerQOL_tt_title",
+			"description" : "berserkerQOL_tt_desc",
+			"callback" : "berserkerQOL_callback_tt",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_tt_value"
+		}
+	]
+}
+
