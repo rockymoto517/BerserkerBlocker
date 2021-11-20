@@ -1,10 +1,10 @@
 {
 	"name" : "BerserkerQOL",
-    "description" : "Legit alternative to BLM",
-    "author" : "Rockymoto517",
-    "version" : "1.0",
+   	"description" : "Legit alternative to BLM",
+   	"author" : "Rockymoto517",
+   	"version" : "1.0",
 	"blt_version" : 2,
-    "hooks" : [
+   	"hooks" : [
 		{
 			"hook_id" : "lib/managers/menumanager", 
 			"script_path" : "lua/init.lua"
@@ -25,19 +25,19 @@
 			"hook_id" : "lib/network/handlers/unitnetworkhandler", 
 			"script_path" : "lua/berserkerQOL.lua"
 		},
-        {
+        	{
 			"hook_id" : "lib/tweak_data/upgradestweakdata", 
 			"script_path" : "lua/berserkerQOL.lua"
 		}
-    ],
+    	],
 	"updates": [
-    	{
-    	"identifier": "BerserkerBlockerGithubUpdate",
-    	"host": {
-    		"meta": "https://rockymoto517.github.io/BerserkerBlocker/meta.json",
-    		"patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
-    		"download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
+    		{
+    		"identifier": "BerserkerBlockerGithubUpdate",
+    		"host": {
+    			"meta": "https://rockymoto517.github.io/BerserkerBlocker/meta.json",
+    			"patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
+    			"download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
+    			}
     		}
-    	}
 	]
 }
