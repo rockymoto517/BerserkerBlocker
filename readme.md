@@ -9,6 +9,5 @@
 #### Todo list
 ###### Priority has a star
 - Block bot boosts*
-- Redo Tag Team blocking
 - Block Combat Medic aced
 - Block Quick Fix aced
