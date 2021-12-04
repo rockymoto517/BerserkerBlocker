@@ -10,4 +10,4 @@
 ###### Priority has a star
 - Block bot boosts*
 - Block Combat Medic aced
-- Block Quick Fix aced
+- Add a berserker % tester (only working on proving grounds/enemy spawner 1-2)

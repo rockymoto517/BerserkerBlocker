@@ -1,8 +1,8 @@
 [
   {
     "ident": "BerserkerBlockerGithubUpdate",
-    "hash": "a1bb6c785af7523a018ae35b12891a601307f92e0189557be3e9b35eb608ac16",
-    "patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
+    "hash": "36799adad3b1348adcee73f903f12d5342d870e7139cb0890c7618dd68e00500",
+    "patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/blob/main/changelog.md",
     "download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
   }
 ]

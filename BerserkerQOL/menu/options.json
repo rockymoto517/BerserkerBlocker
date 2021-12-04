@@ -55,7 +55,19 @@
 				"berserkerQOL_always_block"
 			],
 			"value" : "berserkerQOL_tt_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_qf",
+			"title" : "berserkerQOL_qf_title",
+			"description" : "berserkerQOL_qf_desc",
+			"callback" : "berserkerQOL_callback_qf",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_qf_value"
 		}
 	]
 }
-
