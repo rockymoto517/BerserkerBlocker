@@ -68,6 +68,18 @@
 				"berserkerQOL_always_block"
 			],
 			"value" : "berserkerQOL_qf_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_leech",
+			"title" : "berserkerQOL_leech_title",
+			"description" : "berserkerQOL_leech_desc",
+			"callback" : "berserkerQOL_callback_leech",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_leech_value"
 		}
 	]
 }

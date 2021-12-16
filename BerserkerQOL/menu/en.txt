@@ -13,5 +13,7 @@
     "berserkerQOL_has_berserker" : "Block with Berserker",
     "berserkerQOL_always_block" : "Always block",
     "berserkerQOL_qf_title" : "Quick Fix",
-    "berserkerQOL_qf_desc" : "Blocks the quick fix damage reduction from faks and medic bags."
+    "berserkerQOL_qf_desc" : "Blocks the quick fix damage reduction from faks and medic bags.",
+    "berserkerQOL_leech_title" : "Leech",
+    "berserkerQOL_leech_desc" : "Blocks heals from leech."
 }
