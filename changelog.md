@@ -1,6 +1,5 @@
 # Changelog
 
-#### Version 0.6
+#### Version 0.7
 
-- Added an option to block quick fix (cannot change midgame)
-- Added changelog (go figure)
+- Added an option to block leech healing
