@@ -7,6 +7,7 @@ if not _G.berserkerQOL then
 	berserkerQOL._data["maniac_cancer"] = 0
 	berserkerQOL._data["hacker_cancer"] = 0
 	berserkerQOL._data["tt_cancer"] = 0
+	berserkerQOL._data["leech_cancer"] = 0
 	berserkerQOL._data["qf_cancer"] = 0
 	berserkerQOL._has_zerk = false
 
@@ -71,6 +72,12 @@ if not _G.berserkerQOL then
 		MenuCallbackHandler.berserkerQOL_callback_qf = function(self, item)
 			berserkerQOL._data.berserkerQOL_qf_value = item:value()
 			berserkerQOL._data["qf_cancer"] = berserkerQOL._data.berserkerQOL_qf_value
+			berserkerQOL:Save()
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_leech = function(self, item)
+			berserkerQOL._data.berserkerQOL_leech_value = item:value()
+			berserkerQOL._data["leech_cancer"] = berserkerQOL._data.berserkerQOL_leech_value
 			berserkerQOL:Save()
 		end
 

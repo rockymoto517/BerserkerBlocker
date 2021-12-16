@@ -72,6 +72,25 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 		end
 		
 	end
+
+	function UnitNetworkHandler:copr_teammate_heal(healer_unit, upgrade_level, sender)
+		if not self._verify_gamestate(self._gamestate_filter.any_ingame) or not self._verify_character_and_sender(healer_unit, sender) then
+			return
+		end
+	
+		local player_unit = managers.player:player_unit()
+		local character_damage = alive(player_unit) and player_unit:character_damage()
+	
+		if not character_damage or not character_damage.on_copr_heal_received then
+			return
+		end
+		
+		if berserkerQOL._data["leech_cancer"] == 2 then
+		else
+			character_damage:on_copr_heal_received(healer_unit, upgrade_level)
+		end
+	end
+
 end
 
 if RequiredScript == "lib/player_actions/skills/playeractiontagteam" then
