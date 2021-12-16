@@ -2,7 +2,7 @@
 	"name" : "BerserkerQOL",
    	"description" : "Legit alternative to BLM",
    	"author" : "Rockymoto517",
-   	"version" : "0.6",
+   	"version" : "0.7",
 	"blt_version" : 2,
    	"hooks" : [
 		{
@@ -31,7 +31,7 @@
     	"identifier": "BerserkerBlockerGithubUpdate",
     	"host": {
     		"meta": "https://rockymoto517.github.io/BerserkerBlocker/meta.json",
-    		"patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/blob/main/changelog.md",
+    		"patchnotes": "https://rockymoto517.github.io/BerserkerBlocker/changelog.md",
     		"download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
     		}
     	}
