@@ -64,7 +64,7 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 		local peer_id = sender_peer:id()
 
 		if berserkerQOL._data["cc_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["cc_cancer"] == 3 then --check if they want it disabled on zerk and have zerk or want it always disabled (this gets used a lot)
-			if category ~= "health" and category ~= "armor" and category ~= "damage_dampener" then
+			if category ~= "health" and category ~= "armor" and category ~= "damage_dampener" and category ~= "hostage_multiplier" and category ~= "passive_hostage_multiplier" then
 				managers.player:add_synced_team_upgrade(peer_id, category, upgrade, level)
 			end
 		else

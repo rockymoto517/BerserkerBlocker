@@ -1,5 +1,5 @@
 # Changelog
 
-#### Version 0.7
+#### Version 0.8
 
-- Added an option to block leech healing
+-Fixed a bug with blocking Crew Chief
