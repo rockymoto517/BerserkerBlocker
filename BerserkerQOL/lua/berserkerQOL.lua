@@ -190,4 +190,41 @@ if RequiredScript == "lib/managers/playermanager" then
 	
 		return multiplier
 	end
+
+	function PlayerManager:body_armor_skill_addend(override_armor)
+		local addend = 0
+		addend = addend + self:upgrade_value("player", tostring(override_armor or managers.blackmarket:equipped_armor(true, true)) .. "_armor_addend", 0)
+	
+		if self:has_category_upgrade("player", "armor_increase") then
+			local health_multiplier = self:health_skill_multiplier()
+			local max_health = (PlayerDamage._HEALTH_INIT + self:health_skill_addend()) * health_multiplier
+			addend = addend + max_health * self:upgrade_value("player", "armor_increase", 1)
+		end
+		
+		if berserkerQOL._data["ai_armor_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_armor_cancer"] == 3 then return addend
+		else addend = addend + self:upgrade_value("team", "crew_add_armor", 0) end
+	
+		return addend
+	end
+
+	function PlayerManager:fixed_health_regen(health_ratio)
+		local health_regen = 0
+	
+		if not health_ratio or not self:is_damage_health_ratio_active(health_ratio) then
+			if berserkerQOL._data["ai_hp_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_hp_cancer"] == 3 then health_regen = health_regen + self:upgrade_value("team", "crew_health_regen", 0) end
+		end
+	
+		return health_regen
+	end
+
+	function PlayerManager:health_skill_addend()
+		local addend = 0
+		if berserkerQOL._data["ai_hp_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_hp_cancer"] == 3 then addend = addend + self:upgrade_value("team", "crew_add_health", 0) end
+	
+		if table.contains(self._global.kit.equipment_slots, "thick_skin") then
+			addend = addend + self:upgrade_value("player", "thick_skin", 0)
+		end
+	
+		return addend
+	end
 end

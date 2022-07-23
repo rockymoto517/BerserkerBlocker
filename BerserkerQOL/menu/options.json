@@ -80,6 +80,32 @@
 				"berserkerQOL_always_block"
 			],
 			"value" : "berserkerQOL_leech_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_ai_armor",
+			"title" : "berserkerQOL_ai_armor_title",
+			"description" : "berserkerQOL_ai_armor_desc",
+			"callback" : "berserkerQOL_callback_ai_armor",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_ai_armor_value"
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_ai_hp",
+			"title" : "berserkerQOL_ai_hp_title",
+			"description" : "berserkerQOL_ai_hp_desc",
+			"callback" : "berserkerQOL_callback_ai_hp",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			],
+			"value" : "berserkerQOL_ai_hp_value"
 		}
 	]
 }

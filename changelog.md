@@ -1,5 +1,9 @@
 # Changelog
 
-#### Version 0.8
+#### Version 0.9
 
--Fixed a bug with blocking Crew Chief
+-Added TeamAI HP blocking
+-Added TeamAI armor blocking
+
+###### Version 0.91
+-Fixed typo in localization

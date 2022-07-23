@@ -9,6 +9,8 @@ if not _G.berserkerQOL then
 	berserkerQOL._data["tt_cancer"] = 0
 	berserkerQOL._data["leech_cancer"] = 0
 	berserkerQOL._data["qf_cancer"] = 0
+	berserkerQOL._data["ai_armor_cancer"] = 0
+	berserkerQOL._data["ai_hp_cancer"] = 0
 	berserkerQOL._has_zerk = false
 
 	--Build the menu
@@ -78,6 +80,18 @@ if not _G.berserkerQOL then
 		MenuCallbackHandler.berserkerQOL_callback_leech = function(self, item)
 			berserkerQOL._data.berserkerQOL_leech_value = item:value()
 			berserkerQOL._data["leech_cancer"] = berserkerQOL._data.berserkerQOL_leech_value
+			berserkerQOL:Save()
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_ai_armor = function(self, item)
+			berserkerQOL._data.berserkerQOL_leech_value = item:value()
+			berserkerQOL._data["ai_armor_cancer"] = berserkerQOL._data.berserkerQOL_leech_value
+			berserkerQOL:Save()
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_ai_hp = function(self, item)
+			berserkerQOL._data.berserkerQOL_leech_value = item:value()
+			berserkerQOL._data["ai_hp_cancer"] = berserkerQOL._data.berserkerQOL_leech_value
 			berserkerQOL:Save()
 		end
 
