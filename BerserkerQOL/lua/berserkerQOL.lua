@@ -7,13 +7,19 @@ dofile(ModPath .. "lua/init.lua")
 	3: Always block
 ]]
 
+local function __check_table(index)
+	if index then
+		return index == 2 and berserkerQOL._has_zerk or index == 3
+	end
+end
+
 if RequiredScript == "lib/units/beings/player/playerinventory" then
     --Disable Hacker ECM
     Hooks:PostHook(PlayerInventory,"_start_feedback_effect", "Berserker_qol_start_feedback_effect", 
     function(self, ...)
     	local is_player = managers.player:player_unit() == self._unit
     	if not is_player and self._jammer_data and self._jammer_data.heal then --check if jammer is active
-			if berserkerQOL._data["hacker_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["hacker_cancer"] == 3 then
+			if __check_table(berserkerQOL._data["hacker_cancer"]) then
     			self._jammer_data.heal = 0
 			end
     	end
@@ -40,7 +46,7 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 	
 		local peer_id = peer:id()
 		local current_cocaine_stacks = managers.player:get_synced_cocaine_stacks(peer_id)
-		local bqolmod_bool = berserkerQOL._data["maniac_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["maniac_cancer"] == 3 --put this here so I only have to do this operation once (very minor speed optimization and bad for memory)
+		local bqolmod_bool = __check_table(berserkerQOL._data["maniac_cancer"])
 		
 		if current_cocaine_stacks and not bqolmod_bool then
 			amount = math.min((current_cocaine_stacks and current_cocaine_stacks.amount or 0) + (tweak_data.upgrades.max_cocaine_stacks_per_tick or 20), amount)
@@ -63,7 +69,7 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 	
 		local peer_id = sender_peer:id()
 
-		if berserkerQOL._data["cc_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["cc_cancer"] == 3 then --check if they want it disabled on zerk and have zerk or want it always disabled (this gets used a lot)
+		if __check_table(berserkerQOL._data["cc_cancer"]) then --check if they want it disabled on zerk and have zerk or want it always disabled (this gets used a lot)
 			if category ~= "health" and category ~= "armor" and category ~= "damage_dampener" and category ~= "hostage_multiplier" and category ~= "passive_hostage_multiplier" then
 				managers.player:add_synced_team_upgrade(peer_id, category, upgrade, level)
 			end
@@ -116,7 +122,7 @@ if RequiredScript == "lib/player_actions/skills/playeractiontagteam" then
 			end
 		end
 
-		if berserkerQOL._data["tt_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["tt_cancer"] == 3 then 
+		if __check_table(berserkerQOL._data["tt_cancer"]) then 
 			return
 		else
 			CopDamage.register_listener(on_damage_key, {
@@ -157,7 +163,7 @@ if RequiredScript == "lib/managers/playermanager" then
 		multiplier = multiplier * self:temporary_upgrade_value("temporary", "revived_damage_resist", 1)
 		multiplier = multiplier * self:upgrade_value("player", "damage_dampener", 1)
 		multiplier = multiplier * self:upgrade_value("player", "health_damage_reduction", 1)
-		if berserkerQOL._data["qf_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["qf_cancer"] == 3 then
+		if __check_table(berserkerQOL._data["qf_cancer"]) then
 		else
 			multiplier = multiplier * self:temporary_upgrade_value("temporary", "first_aid_damage_reduction", 1)
 		end
@@ -201,8 +207,9 @@ if RequiredScript == "lib/managers/playermanager" then
 			addend = addend + max_health * self:upgrade_value("player", "armor_increase", 1)
 		end
 		
-		if berserkerQOL._data["ai_armor_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_armor_cancer"] == 3 then return addend
-		else addend = addend + self:upgrade_value("team", "crew_add_armor", 0) end
+		if __check_table(berserkerQOL._data["ai_armor_cancer"]) then return addend else
+
+		addend = addend + self:upgrade_value("team", "crew_add_armor", 0) end
 	
 		return addend
 	end
@@ -211,7 +218,8 @@ if RequiredScript == "lib/managers/playermanager" then
 		local health_regen = 0
 	
 		if not health_ratio or not self:is_damage_health_ratio_active(health_ratio) then
-			if berserkerQOL._data["ai_hp_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_hp_cancer"] == 3 then return health_regen end
+			if __check_table(berserkerQOL._data["ai_hp_cancer"]) then return health_regen else
+
 			health_regen = health_regen + self:upgrade_value("team", "crew_health_regen", 0) end
 		end
 	
@@ -220,7 +228,8 @@ if RequiredScript == "lib/managers/playermanager" then
 
 	function PlayerManager:health_skill_addend()
 		local addend = 0
-		if berserkerQOL._data["ai_hp_cancer"] == 2 and berserkerQOL._has_zerk or berserkerQOL._data["ai_hp_cancer"] == 3 then return addend end
+		if __check_table(berserkerQOL._data["ai_hp_cancer"]) then return addend	else 
+		
 		addend = addend + self:upgrade_value("team", "crew_add_health", 0) end
 	
 		if table.contains(self._global.kit.equipment_slots, "thick_skin") then

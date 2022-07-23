@@ -10,3 +10,7 @@
 
 ##### Version 0.92
 -Fixed code
+
+##### Version 0.93
+-Fixed drunk lua code
+-Minor code cleanup
