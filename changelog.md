@@ -7,3 +7,6 @@
 
 ###### Version 0.91
 -Fixed typo in localization
+
+##### Version 0.92
+-Fixed code

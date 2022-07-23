@@ -9,6 +9,5 @@
 #### Todo list
 ###### Priority has a star
 - Create support for individual skillsets**
-- Block bot boosts*
 - Block Combat Medic aced
 - Add a berserker % tester (only working on proving grounds/enemy spawner 1-2)
