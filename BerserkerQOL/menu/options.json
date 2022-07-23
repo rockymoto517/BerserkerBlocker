@@ -77,6 +77,7 @@
 			"callback" : "berserkerQOL_callback_leech",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
 			],
 			"value" : "berserkerQOL_leech_value"

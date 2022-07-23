@@ -91,7 +91,7 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 			return
 		end
 		
-		if berserkerQOL._data["leech_cancer"] == 2 then
+		if __check_table(berserkerQOL._data["leech_cancer"]) then
 		else
 			character_damage:on_copr_heal_received(healer_unit, upgrade_level)
 		end

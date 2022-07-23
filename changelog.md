@@ -14,3 +14,6 @@
 ##### Version 0.93
 -Fixed drunk lua code
 -Minor code cleanup
+
+#### Version 0.94
+-Added more options for leech (per request)

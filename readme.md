@@ -1,8 +1,13 @@
 # Berserker Blocker
 
-#### Features
+#### Blocks
+- Hacker
+- Maniac 
+- Tag Team
+- Leech
+- Crew Chief
 
-- Blocks Hacker, Maniac, Tag Team, and Crew Chief from messing up your zerk
+#### Other Features
 - Allows you to disable them if you only have berserker, all the time, or never
 - Auto-updating
 
