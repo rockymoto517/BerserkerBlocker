@@ -32,6 +32,9 @@ if RequiredScript == "lib/units/beings/player/playerinventory" then
 		if managers.player:has_category_upgrade("player", "damage_health_ratio_multiplier") or managers.player:has_category_upgrade("player", "melee_damage_health_ratio_multiplier") then
 			berserkerQOL._has_zerk = true
 		end
+		if managers.player:has_category_upgrade("temporary", "temporary_first_aid_damage_reduction") then
+			berserkerQOL._has_qfaced = true
+		end
 	end
 	)
 end
@@ -163,7 +166,7 @@ if RequiredScript == "lib/managers/playermanager" then
 		multiplier = multiplier * self:temporary_upgrade_value("temporary", "revived_damage_resist", 1)
 		multiplier = multiplier * self:upgrade_value("player", "damage_dampener", 1)
 		multiplier = multiplier * self:upgrade_value("player", "health_damage_reduction", 1)
-		if __check_table(berserkerQOL._data["qf_cancer"]) then
+		if __check_table(berserkerQOL._data["qf_cancer"]) or (berserkerQOL._data == 4 and berserkerQOL._has_qfaced == false) then
 		else
 			multiplier = multiplier * self:temporary_upgrade_value("temporary", "first_aid_damage_reduction", 1)
 		end

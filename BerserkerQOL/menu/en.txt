@@ -19,5 +19,6 @@
     "berserkerQOL_ai_armor_title" : "TeamAI Armor",
     "berserkerQOL_ai_armor_desc" : "Blocks armor boosts from team ai.",
     "berserkerQOL_ai_hp_title" : "TeamAI HP",
-    "berserkerQOL_ai_hp_desc" : "Blocks HP boosts from team ai."
+    "berserkerQOL_ai_hp_desc" : "Blocks HP boosts from team ai.",
+    "berserkerQOL_block_qf" : "Without it aced"
 }

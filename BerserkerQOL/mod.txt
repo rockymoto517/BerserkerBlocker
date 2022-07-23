@@ -2,7 +2,7 @@
 	"name" : "BerserkerQOL",
    	"description" : "Legit alternative to BLM",
    	"author" : "Rockymoto517",
-   	"version" : "0.94",
+   	"version" : "0.95",
 	"blt_version" : 2,
    	"hooks" : [
 		{

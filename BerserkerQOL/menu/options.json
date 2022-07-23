@@ -65,7 +65,8 @@
 			"items" : [
 				"berserkerQOL_default",
 				"berserkerQOL_has_berserker",
-				"berserkerQOL_always_block"
+				"berserkerQOL_always_block",
+				"berserkerQOL_block_qf"
 			],
 			"value" : "berserkerQOL_qf_value"
 		},
