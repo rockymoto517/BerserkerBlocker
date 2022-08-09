@@ -11,6 +11,7 @@ if not _G.berserkerQOL then
 	berserkerQOL._data["qf_cancer"] = 0
 	berserkerQOL._data["ai_armor_cancer"] = 0
 	berserkerQOL._data["ai_hp_cancer"] = 0
+	berserkerQOL._data["combatmedic_cancer"] = 0
 	berserkerQOL._has_zerk = false
 	berserkerQOL._has_qfaced = false
 
@@ -93,6 +94,12 @@ if not _G.berserkerQOL then
 		MenuCallbackHandler.berserkerQOL_callback_ai_hp = function(self, item)
 			berserkerQOL._data.berserkerQOL_ai_hp_value = item:value()
 			berserkerQOL._data["ai_hp_cancer"] = berserkerQOL._data.berserkerQOL_ai_hp_value
+			berserkerQOL:Save()
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_cm = function(self, item)
+			berserkerQOL._data.berserkerQOL_cm_value = item:value()
+			berserkerQOL._data["combatmedic_cancer"] = berserkerQOL._data.berserkerQOL_cm_value
 			berserkerQOL:Save()
 		end
 

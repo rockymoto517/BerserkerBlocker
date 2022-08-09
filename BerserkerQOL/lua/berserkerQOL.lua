@@ -18,7 +18,7 @@ if RequiredScript == "lib/units/beings/player/playerinventory" then
     Hooks:PostHook(PlayerInventory,"_start_feedback_effect", "Berserker_qol_start_feedback_effect", 
     function(self, ...)
     	local is_player = managers.player:player_unit() == self._unit
-    	if not is_player and self._jammer_data and self._jammer_data.heal then --check if jammer is active
+    	if not is_player and self._jammer_data and self._jammer_data.heal then
 			if __check_table(berserkerQOL._data["hacker_cancer"]) then
     			self._jammer_data.heal = 0
 			end
@@ -34,9 +34,18 @@ if RequiredScript == "lib/units/beings/player/playerinventory" then
 		end
 		if managers.player:has_category_upgrade("temporary", "temporary_first_aid_damage_reduction") then
 			berserkerQOL._has_qfaced = true
+		else 
+			berserkerQOL._has_qfaced = false
 		end
 	end
 	)
+end
+
+if RequiredScript == "lib/units/beings/player/playerdamage" then
+	function PlayerDamage:set_revive_boost(revive_health_level)
+		if __check_table(berserkerQOL._data["combatmedic_cancer"]) then self._revive_health_multiplier = 1 else
+		self._revive_health_multiplier = tweak_data.upgrades.revive_health_multiplier[revive_health_level] end
+	end
 end
 
 if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
