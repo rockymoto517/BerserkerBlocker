@@ -1,8 +1,9 @@
 {
 	"menu_id" : "berserkerQOL_menu",
 	"parent_menu_id" : "blt_options",
-	"title" : "berserkerQOL_menu",
+	"title" : "berserkerQOL_menu_title",
 	"description" : "berserkerQOL_menu_desc",
+	"focus_changed_callback" : "berserkerQOL_focus_changed_callback",
 	"items" : [
 		{
 			"type" : "multiple_choice",
@@ -10,12 +11,13 @@
 			"title" : "berserkerQOL_cc_title",
 			"description" : "berserkerQOL_cc_desc",
 			"callback" : "berserkerQOL_callback_cc",
+			"value" : "_cc_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_cc_value"
+			]
 		},
 		{
 			"type" : "multiple_choice",
@@ -23,38 +25,13 @@
 			"title" : "berserkerQOL_maniac_title",
 			"description" : "berserkerQOL_maniac_desc",
 			"callback" : "berserkerQOL_callback_maniac",
+			"value" : "_maniac_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_maniac_value"
-		},
-		{
-			"type" : "multiple_choice",
-			"id" : "berserkerQOL_hacker",
-			"title" : "berserkerQOL_hacker_title",
-			"description" : "berserkerQOL_hacker_desc",
-			"callback" : "berserkerQOL_callback_hacker",
-			"items" : [
-				"berserkerQOL_default",
-				"berserkerQOL_has_berserker",
-				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_hacker_value"
-		},
-		{
-			"type" : "multiple_choice",
-			"id" : "berserkerQOL_tt",
-			"title" : "berserkerQOL_tt_title",
-			"description" : "berserkerQOL_tt_desc",
-			"callback" : "berserkerQOL_callback_tt",
-			"items" : [
-				"berserkerQOL_default",
-				"berserkerQOL_has_berserker",
-				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_tt_value"
+			]
 		},
 		{
 			"type" : "multiple_choice",
@@ -62,26 +39,14 @@
 			"title" : "berserkerQOL_qf_title",
 			"description" : "berserkerQOL_qf_desc",
 			"callback" : "berserkerQOL_callback_qf",
+			"value" : "_qf_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block",
 				"berserkerQOL_block_qf"
-			],
-			"value" : "berserkerQOL_qf_value"
-		},
-		{
-			"type" : "multiple_choice",
-			"id" : "berserkerQOL_leech",
-			"title" : "berserkerQOL_leech_title",
-			"description" : "berserkerQOL_leech_desc",
-			"callback" : "berserkerQOL_callback_leech",
-			"items" : [
-				"berserkerQOL_default",
-				"berserkerQOL_has_berserker",
-				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_leech_value"
+			]
 		},
 		{
 			"type" : "multiple_choice",
@@ -89,12 +54,13 @@
 			"title" : "berserkerQOL_ai_armor_title",
 			"description" : "berserkerQOL_ai_armor_desc",
 			"callback" : "berserkerQOL_callback_ai_armor",
+			"value" : "_ai_armor_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_ai_armor_value"
+			]
 		},
 		{
 			"type" : "multiple_choice",
@@ -102,12 +68,13 @@
 			"title" : "berserkerQOL_ai_hp_title",
 			"description" : "berserkerQOL_ai_hp_desc",
 			"callback" : "berserkerQOL_callback_ai_hp",
+			"value" : "_ai_hp_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_ai_hp_value"
+			]
 		},
 		{
 			"type" : "multiple_choice",
@@ -115,12 +82,31 @@
 			"title" : "berserkerQOL_cm_title",
 			"description" : "berserkerQOL_cm_desc",
 			"callback" : "berserkerQOL_callback_cm",
+			"value" : "_combatmedic_cancer",
 			"items" : [
 				"berserkerQOL_default",
+				"berserkerQOL_never_block",
 				"berserkerQOL_has_berserker",
 				"berserkerQOL_always_block"
-			],
-			"value" : "berserkerQOL_cm_value"
+			]
+		},
+		{
+			"type" : "divider",
+			"size" : 24
+		},
+		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_skillset",
+			"title" : "berserkerQOL_skillset_title",
+			"description" : "berserkerQOL_skillset_desc",
+			"callback" : "berserkerQOL_callback_skillset",
+			"items" : []
+		},
+		{
+			"type" : "button",
+			"id" : "berserkerQOL_apply",
+			"title" : "berserkerQOL_apply_title",
+			"callback" : "berserkerQOL_callback_apply"
 		}
 	]
 }
