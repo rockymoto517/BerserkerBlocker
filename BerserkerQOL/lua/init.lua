@@ -77,7 +77,7 @@ if not _G.berserkerQOL then
 
     -- Returns the updated value of the menu item
 	local function update_value(index, profile)
-		local ret = (profile == 31 and berserkerQOL._data.default[index]) or (berserkerQOL._data['skillset'..tostring(profile)][index])
+		local ret = (profile == NUM_PROFILES+1 and berserkerQOL._data.default[index]) or (berserkerQOL._data['skillset'..tostring(profile)][index])
 		return ret ~= 0 and ret or 1
 	end
 
