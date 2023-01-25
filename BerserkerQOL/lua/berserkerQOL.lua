@@ -96,77 +96,33 @@ if RequiredScript == "lib/network/handlers/unitnetworkhandler" then
 end
 
 if RequiredScript == "lib/managers/playermanager" then
+	local old_dr_multiplier = PlayerManager.damage_reduction_skill_multiplier
     function PlayerManager:damage_reduction_skill_multiplier(damage_type)
-		local multiplier = 1
-		multiplier = multiplier * self:temporary_upgrade_value("temporary", "dmg_dampener_outnumbered", 1)
-		multiplier = multiplier * self:temporary_upgrade_value("temporary", "dmg_dampener_outnumbered_strong", 1)
-		multiplier = multiplier * self:temporary_upgrade_value("temporary", "dmg_dampener_close_contact", 1)
-		multiplier = multiplier * self:temporary_upgrade_value("temporary", "revived_damage_resist", 1)
-		multiplier = multiplier * self:upgrade_value("player", "damage_dampener", 1)
-		multiplier = multiplier * self:upgrade_value("player", "health_damage_reduction", 1)
+		local multiplier = old_dr_multiplier(self, damage_type)
+		local qf_multi = self:temporary_upgrade_value("temporary", "first_aid_damage_reduction", 1)
 		if __check_table("qf_cancer") then
-		else
-			multiplier = multiplier * self:temporary_upgrade_value("temporary", "first_aid_damage_reduction", 1)
-		end
-		multiplier = multiplier * self:temporary_upgrade_value("temporary", "revive_damage_reduction", 1)
-		multiplier = multiplier * self:get_hostage_bonus_multiplier("damage_dampener")
-		multiplier = multiplier * self._properties:get_property("revive_damage_reduction", 1)
-		multiplier = multiplier * self._temporary_properties:get_property("revived_damage_reduction", 1)
-		local dmg_red_mul = self:team_upgrade_value("damage_dampener", "team_damage_reduction", 1)
-
-		if self:has_category_upgrade("player", "passive_damage_reduction") then
-			local health_ratio = self:player_unit():character_damage():health_ratio()
-			local min_ratio = self:upgrade_value("player", "passive_damage_reduction")
-
-			if health_ratio < min_ratio then
-				dmg_red_mul = dmg_red_mul - (1 - dmg_red_mul)
-			end
-		end
-
-		multiplier = multiplier * dmg_red_mul
-
-		if damage_type == "melee" then
-			multiplier = multiplier * managers.player:upgrade_value("player", "melee_damage_dampener", 1)
-		end
-
-		local current_state = self:get_current_state()
-
-		if current_state and current_state:_interacting() then
-			multiplier = multiplier * managers.player:upgrade_value("player", "interacting_damage_multiplier", 1)
+			multiplier = multiplier / qf_multi
 		end
 
 		return multiplier
 	end
 
+	local old_body_armor_addend = PlayerManager.body_armor_skill_addend
 	function PlayerManager:body_armor_skill_addend(override_armor)
-		local addend = 0
-		addend = addend + self:upgrade_value("player", tostring(override_armor or managers.blackmarket:equipped_armor(true, true)) .. "_armor_addend", 0)
-
-		if self:has_category_upgrade("player", "armor_increase") then
-			local health_multiplier = self:health_skill_multiplier()
-			local max_health = (PlayerDamage._HEALTH_INIT + self:health_skill_addend()) * health_multiplier
-			addend = addend + max_health * self:upgrade_value("player", "armor_increase", 1)
+		local addend = old_body_armor_addend(self, override_armor)
+		local crew_add = self:upgrade_value("team", "crew_add_armor", 0)
+		if __check_table("ai_armor_cancer") then
+			addend = addend - crew_add
 		end
-
-		if __check_table("ai_armor_cancer") then return
-			addend
-		end
-
-		addend = addend + self:upgrade_value("team", "crew_add_armor", 0)
 
 		return addend
 	end
 
+	local old_hp_addend = PlayerManager.health_skill_addend
 	function PlayerManager:health_skill_addend()
-		local addend = 0
+		local addend = old_hp_addend(self)
 		if __check_table("ai_hp_cancer") then
-			return addend
-		end
-
-		addend = addend + self:upgrade_value("team", "crew_add_health", 0)
-
-		if table.contains(self._global.kit.equipment_slots, "thick_skin") then
-			addend = addend + self:upgrade_value("player", "thick_skin", 0)
+			return 0
 		end
 
 		return addend
