@@ -10,6 +10,7 @@ if not _G.berserkerQOL then
 	berserkerQOL._data.default["ai_armor_cancer"] = 0
 	berserkerQOL._data.default["ai_hp_cancer"] = 0
 	berserkerQOL._data.default["combatmedic_cancer"] = 0
+	berserkerQOL._data.testing_level = 0.3
 	berserkerQOL._has_zerk = false
 	berserkerQOL._has_qfaced = false
 	local NUM_PROFILES = #tweak_data.skilltree.skill_switches or 15
@@ -178,6 +179,19 @@ if not _G.berserkerQOL then
             -- Exit and enter menu on save to make it feel responsive
 			managers.menu:back()
 			managers.menu:open_node('berserkerQOL_menu')
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_test_percent = function(self, item)
+			local value = math.floor(item:value()*100+0.5) / 100
+			berserkerQOL._data.testing_level = value
+		end
+
+		MenuCallbackHandler.berserkerQOL_callback_apply_zerk = function(self)
+			if Utils:IsInHeist() and managers.job:current_level_id() == "modders_devmap" then
+				local amount = (1 - berserkerQOL._data.testing_level) * managers.player:player_unit():character_damage():_max_health() * 0.5
+				managers.player:player_unit():character_damage():set_health(amount)
+				berserkerQOL:Save()
+			end
 		end
 
         -- Add every profile to the profile option

@@ -107,6 +107,27 @@
 			"id" : "berserkerQOL_apply",
 			"title" : "berserkerQOL_apply_title",
 			"callback" : "berserkerQOL_callback_apply"
+		},
+		{
+			"type" : "divider",
+			"size" : 24
+		},
+		{
+			"type" : "slider",
+			"id" : "berserkerQOL_test_percent",
+			"title" : "berserkerQOL_test_title",
+			"description" : "berserkerQOL_test_desc",
+			"callback" : "berserkerQOL_callback_test_percent",
+			"value" : "testing_level",
+			"min" : 0,
+			"max" : 1,
+			"step" : 0.01
+		},
+		{
+			"type" : "button",
+			"id" : "berserkerQOL_apply_zerk",
+			"title" : "berserkerQOL_apply_zerk_title",
+			"callback" : "berserkerQOL_callback_apply_zerk"
 		}
 	]
 }

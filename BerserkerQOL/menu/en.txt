@@ -20,5 +20,8 @@
     "berserkerQOL_cm_desc" : "Blocks the revive HP boost from combat medic aced.",
     "berserkerQOL_skillset_title" : "Skillset",
     "berserkerQOL_skillset_desc" : "Default applies to all skillsets unless you've added settings to that skillset already.",
-    "berserkerQOL_apply_title" : "Apply Settings"
+    "berserkerQOL_apply_title" : "Apply Settings",
+    "berserkerQOL_test_title" : "Zerk Test Level",
+	"berserkerQOL_test_desc" : "Only works on the map proving grounds. Set a level of zerk to test breakpoints with.",
+    "berserkerQOL_apply_zerk_title" : "Apply Zerk"
 }
