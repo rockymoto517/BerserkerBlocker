@@ -91,6 +91,20 @@
 			]
 		},
 		{
+			"type" : "multiple_choice",
+			"id" : "berserkerQOL_ff",
+			"title" : "berserkerQOL_ff_title",
+			"description" : "berserkerQOL_ff_desc",
+			"callback" : "berserkerQOL_callback_ff",
+			"value" : "_ff_cancer",
+			"items" : [
+				"berserkerQOL_default",
+				"berserkerQOL_never_block",
+				"berserkerQOL_has_berserker",
+				"berserkerQOL_always_block"
+			]
+		},
+		{
 			"type" : "divider",
 			"size" : 24
 		},

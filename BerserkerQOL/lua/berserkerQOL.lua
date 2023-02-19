@@ -127,6 +127,14 @@ if RequiredScript == "lib/managers/playermanager" then
 
 		return addend
 	end
+
+	local old_set_damage_absorption = PlayerManager.set_damage_absorption
+	function PlayerManager:set_damage_absorption(key, value)
+		if key and key == "hostage_absorption" then
+			return
+		end
+		old_set_damage_absorption(self, key, value)
+	end
 end
 
 if RequiredScript == "lib/network/base/basenetworksession" then

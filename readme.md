@@ -6,6 +6,7 @@
 - Crew Chief
 - AI Boosts
 - Combat Medic Aced
+- Forced Friendship Aced
 
 #### Other Features
 - Allows you to disable them if you only have berserker, all the time, or never

@@ -4,6 +4,7 @@ if not _G.berserkerQOL then
 	berserkerQOL._data_path = SavePath .. "berserkerQOL_save_data.txt"
 	berserkerQOL._data = {}
     berserkerQOL._data.default = {}
+	berserkerQOL._data.default["ff_cancer"] = 0
 	berserkerQOL._data.default["cc_cancer"] = 0
 	berserkerQOL._data.default["maniac_cancer"] = 0
 	berserkerQOL._data.default["qf_cancer"] = 0
@@ -17,6 +18,7 @@ if not _G.berserkerQOL then
 
 	for i = 1, NUM_PROFILES do
 		berserkerQOL._data['skillset'..tostring(i)] = {
+				["ff_cancer"] = 0,
 				["cc_cancer"] = 0,
 				["maniac_cancer"] = 0,
 				["qf_cancer"] = 0,
@@ -90,6 +92,15 @@ if not _G.berserkerQOL then
 		local selectedProfile = NUM_PROFILES + 1
 
 		--Gather the options
+		MenuCallbackHandler.berserkerQOL_callback_ff = function(self, item)
+			if selectedProfile == NUM_PROFILES + 1 then
+				berserkerQOL._data.default["ff_cancer"] = item:value()
+				berserkerQOL._data._ff_cancer = item:value()
+			else
+				berserkerQOL._data['skillset'..tostring(selectedProfile)]["ff_cancer"] = item:value()
+			end
+		end
+
 		MenuCallbackHandler.berserkerQOL_callback_cc = function(self, item)
 			if selectedProfile == NUM_PROFILES + 1 then
 				berserkerQOL._data.default["cc_cancer"] = item:value()
@@ -157,6 +168,8 @@ if not _G.berserkerQOL then
 				if item._type == "multi_choice" and name ~= "berserkerQOL_skillset" then
 					if name == "berserkerQOL_cc" then
 						item:set_current_index(update_value("cc_cancer", selectedProfile))
+					elseif name == "berserkerQOL_ff" then
+						item:set_current_index(update_value("ff_cancer", selectedProfile))
 					elseif name == "berserkerQOL_maniac" then
 						item:set_current_index(update_value("maniac_cancer", selectedProfile))
 					elseif name == "berserkerQOL_qf" then
