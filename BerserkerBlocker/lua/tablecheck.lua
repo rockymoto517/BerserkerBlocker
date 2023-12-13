@@ -34,4 +34,3 @@ function berserkerQOL:check_table(effect)
 		return false
 	end
 end
-

@@ -1,0 +1,27 @@
+name: Update legacy meta file
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+ build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Update legacy meta hash
+        run: |
+          $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
+        shell: powershell
+      - name: Commit changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
+          git add meta.json
+          git commit -m "Update legacy meta"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true

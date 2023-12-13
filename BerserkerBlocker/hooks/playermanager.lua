@@ -37,4 +37,3 @@ function PlayerManager:set_damage_absorption(key, value)
 	end
 	old_set_damage_absorption(self, key, value)
 end
-

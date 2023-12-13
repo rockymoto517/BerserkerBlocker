@@ -6,4 +6,3 @@ berserkerQOL.hook_paths = {
 	["lib/units/beings/player/playerdamage"] = berserkerQOL._path.."hooks/playerdamage.lua",
 	["lib/network/base/basenetworksession"] = berserkerQOL._path.."hooks/basenetworksession.lua",
 }
-

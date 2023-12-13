@@ -25,4 +25,3 @@ function UnitNetworkHandler:add_synced_team_upgrade(category, upgrade, level, se
 	end
 
 end
-

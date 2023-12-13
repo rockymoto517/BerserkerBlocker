@@ -10,4 +10,3 @@ Hooks:PostHook(PlayerInventory,"init", "Berserker_qol_find_zerk",
 		berserkerQOL._has_qfaced = false
 	end
 end)
-

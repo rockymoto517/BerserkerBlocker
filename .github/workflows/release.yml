@@ -33,7 +33,7 @@ jobs:
         body: |
           This release zip is automatically updated on every push.
     - name: Upload Mod Zip to Release
-      id: upload-release-asset 
+      id: upload_release_asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -46,9 +46,12 @@ jobs:
       id: create_meta_file
       run: |
          $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
-         $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ../meta.json
+    - name: Update legacy meta file
+      id: update_legacy_meta
+      run: |
+         $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
     - name: Upload meta file to Release
-      id: upload-meta-asset 
+      id: upload_meta_asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -187,4 +187,3 @@ Hooks:Add("MenuManagerInitialize", "MenuManagerInitialize_berserkerQOL", functio
 	berserkerQOL:Load()
 	MenuHelper:LoadFromJsonFile(berserkerQOL._path .. "menu/options.json", berserkerQOL, berserkerQOL._data)
 end)
-

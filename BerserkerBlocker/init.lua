@@ -65,4 +65,3 @@ if berserkerQOL[RequiredScript] and not berserkerQOL.hooks_loaded[RequiredScript
     dofile(berserkerQOL[RequiredScript])
     berserkerQOL.hooks_loaded[RequiredScript] = true
 end
-

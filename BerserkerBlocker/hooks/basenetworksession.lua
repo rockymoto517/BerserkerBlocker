@@ -7,4 +7,3 @@ function(self)
 		managers.player:player_unit():character_damage():set_health(amount)
 	end
 end)
-
