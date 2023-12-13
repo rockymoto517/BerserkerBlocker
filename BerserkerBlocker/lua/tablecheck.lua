@@ -8,7 +8,7 @@
 
 -- return the blocking status
 function berserkerQOL:check_table(effect)
-    local profile = managers.multi_profile and managers.multi_profile._global._current_profile or 31
+    local profile = managers.multi_profile and managers.multi_profile._global._current_profile or 1
 	local save_value = berserkerQOL._data['skillset'..tostring(profile)][effect]
     if save_value == 1 or save_value == 0 then
 		save_value = berserkerQOL._data.default[effect]
