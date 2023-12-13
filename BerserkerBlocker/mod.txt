@@ -1,0 +1,47 @@
+{
+	"name" : "BerserkerQOL",
+   	"description" : "Berserker blocking/utility mod.",
+   	"author" : "Rockymoto517",
+   	"version" : "2.0",
+	"blt_version" : 2,
+   	"hooks" : [
+		{
+			"hook_id" : "lib/managers/menumanager",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/units/beings/player/playerinventory",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/managers/playermanager",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/player_actions/skills/playeractiontagteam",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/network/handlers/unitnetworkhandler",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/units/beings/player/playerdamage",
+			"script_path" : "init.lua"
+		},
+		{
+			"hook_id" : "lib/network/base/basenetworksession",
+			"script_path" : "init.lua"
+		}
+    ],
+	"updates": [
+    	{
+    	"identifier": "BerserkerBlockerGithubUpdate",
+    	"host": {
+    		"meta": "https://rockymoto517.github.io/BerserkerBlocker/meta.json",
+    		"patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
+    		"download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
+    		}
+    	}
+	]
+}

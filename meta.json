@@ -1,8 +1,8 @@
 [
-  {
-    "ident": "BerserkerBlockerGithubUpdate",
-    "hash": "e5482fee418b879f4776352dc73671d491f7e3b1046e0bda3629270e04f62df5",
-    "patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
-    "download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
-  }
+    {
+        "ident" : "BerserkerBlockerGithubUpdate",
+        "hash" : "32013cdf8ceb729f64391fff2211ebccbda098c085958aa2fc34db61431391da",
+        "patchnotes_url" : "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
+        "download_url" : "https://github.com/rockymoto517/BerserkerBlocker/releases/latest/download/BerserkerBlocker.zip"
+    }
 ]
