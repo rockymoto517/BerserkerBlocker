@@ -2,8 +2,7 @@
 	"name" : "BerserkerQOL",
    	"description" : "Berserker blocking/utility mod.",
    	"author" : "Rockymoto517",
-   	"version" : "2.11",
-	"blt_version" : 2,
+   	"version" : "2.12",
    	"hooks" : [
 		{
 			"hook_id" : "lib/managers/menumanager",
@@ -34,14 +33,10 @@
 			"script_path" : "init.lua"
 		}
     ],
-	"updates": [
+	"updates" : [
     	{
-    	"identifier": "BerserkerBlockerGithubUpdate",
-    	"host": {
-    		"meta": "https://rockymoto517.github.io/BerserkerBlocker/meta.json",
-    		"patchnotes": "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
-    		"download": "https://rockymoto517.github.io/BerserkerBlocker/BerserkerBlocker.zip"
-    		}
+    	    "identifier" : "BerserkerBlockerGithubUpdate",
+    	    "host" : { "meta" : "https://github.com/rockymoto517/BerserkerBlocker/releases/latest/download/meta.json" }
     	}
 	]
 }

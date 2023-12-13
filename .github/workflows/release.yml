@@ -46,10 +46,6 @@ jobs:
       id: create_meta_file
       run: |
          $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
-    - name: Update legacy meta file
-      id: update_legacy_meta
-      run: |
-         $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
     - name: Upload meta file to Release
       id: upload_meta_asset 
       uses: actions/upload-release-asset@v1

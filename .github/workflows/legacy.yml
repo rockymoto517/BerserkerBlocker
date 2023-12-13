@@ -9,19 +9,17 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@main
-      - name: Update legacy meta hash
+      - name: Update meta template
         run: |
-          $(cat .\.github\meta.json).Replace("%HASH%", $(./.github/hash.exe "./BerserkerBlocker").Substring(17)) > ./meta.json
-        shell: powershell
+          rm ./meta.json
+          $(cat .\.github\meta.json).Replace("%HASH%", $(.\.github\hash.exe ".\BerserkerBlocker").Substring(17)) > meta.json
       - name: Commit changes
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Github Actions"
-          git add meta.json
-          git commit -m "Update legacy meta"
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update legacy hash
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          force: false
