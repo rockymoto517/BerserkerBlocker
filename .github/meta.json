@@ -1,0 +1,8 @@
+[
+    {
+        "ident" : "BerserkerBlockerGithubUpdate",
+        "hash" : "%HASH%",
+        "patchnotes_url" : "https://github.com/rockymoto517/BerserkerBlocker/commits/main",
+        "download_url" : "https://github.com/rockymoto517/BerserkerBlocker/releases/latest/download/BerserkerBlocker.zip"
+    }
+]
