@@ -2,7 +2,7 @@
 	"name" : "BerserkerQOL",
    	"description" : "Berserker blocking/utility mod.",
    	"author" : "Rockymoto517",
-   	"version" : "2.11",
+   	"version" : "2.12",
 	"blt_version" : 2,
    	"hooks" : [
 		{
