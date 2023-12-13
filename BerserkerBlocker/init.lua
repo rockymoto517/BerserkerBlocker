@@ -61,7 +61,11 @@ if not _G.berserkerQOL then
 	berserkerQOL.hooks_loaded = {}
 end
 
-if berserkerQOL[RequiredScript] and not berserkerQOL.hooks_loaded[RequiredScript] then
-    dofile(berserkerQOL[RequiredScript])
-    berserkerQOL.hooks_loaded[RequiredScript] = true
+local function main()
+	if berserkerQOL[RequiredScript] and not berserkerQOL.hooks_loaded[RequiredScript] then
+		dofile(berserkerQOL[RequiredScript])
+		berserkerQOL.hooks_loaded[RequiredScript] = true
+	end
 end
+
+main()
