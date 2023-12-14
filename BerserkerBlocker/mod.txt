@@ -2,7 +2,7 @@
 	"name" : "BerserkerQOL",
    	"description" : "Berserker blocking/utility mod.",
    	"author" : "Rockymoto517",
-   	"version" : "2.12",
+   	"version" : "2.13",
    	"hooks" : [
 		{
 			"hook_id" : "lib/managers/menumanager",
