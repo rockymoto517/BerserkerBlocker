@@ -1,23 +1,23 @@
-if not _G.berserkerQOL then
-	_G.berserkerQOL = _G.berserkerQOL or {}
-	berserkerQOL._path = ModPath
-	berserkerQOL._data_path = SavePath .. "berserkerQOL_save_data.txt"
-	berserkerQOL._data = {}
-    berserkerQOL._data.default = {}
-	berserkerQOL._data.default["ff_cancer"] = 0
-	berserkerQOL._data.default["cc_cancer"] = 0
-	berserkerQOL._data.default["maniac_cancer"] = 0
-	berserkerQOL._data.default["qf_cancer"] = 0
-	berserkerQOL._data.default["ai_armor_cancer"] = 0
-	berserkerQOL._data.default["ai_hp_cancer"] = 0
-	berserkerQOL._data.default["combatmedic_cancer"] = 0
-	berserkerQOL._data.testing_level = 0.3
-	berserkerQOL._has_zerk = false
-	berserkerQOL._has_qfaced = false
-	berserkerQOL.num_profiles = #tweak_data.skilltree.skill_switches or 15
+if not _G.BerserkerQOL then
+	_G.BerserkerQOL = _G.BerserkerQOL or {}
+	BerserkerQOL._path = ModPath
+	BerserkerQOL._data_path = SavePath .. "berserkerQOL_save_data.txt"
+	BerserkerQOL._data = {}
+    BerserkerQOL._data.default = {}
+	BerserkerQOL._data.default["ff_cancer"] = 0
+	BerserkerQOL._data.default["cc_cancer"] = 0
+	BerserkerQOL._data.default["maniac_cancer"] = 0
+	BerserkerQOL._data.default["qf_cancer"] = 0
+	BerserkerQOL._data.default["ai_armor_cancer"] = 0
+	BerserkerQOL._data.default["ai_hp_cancer"] = 0
+	BerserkerQOL._data.default["combatmedic_cancer"] = 0
+	BerserkerQOL._data.testing_level = 0.3
+	BerserkerQOL._has_zerk = false
+	BerserkerQOL._has_qfaced = false
+	BerserkerQOL.num_profiles = #tweak_data.skilltree.skill_switches or 15
 
-	for i = 1, berserkerQOL.num_profiles do
-		berserkerQOL._data['skillset'..tostring(i)] = {
+	for i = 1, BerserkerQOL.num_profiles do
+		BerserkerQOL._data['skillset'..tostring(i)] = {
 				["ff_cancer"] = 0,
 				["cc_cancer"] = 0,
 				["maniac_cancer"] = 0,
@@ -29,7 +29,7 @@ if not _G.berserkerQOL then
 	end
 
 	--Build the menu
-	function berserkerQOL:Save()
+	function BerserkerQOL:Save()
 		local save = io.open(self._data_path, 'w+')
 		if save then
 			save:write(json.encode(self._data))
@@ -37,7 +37,7 @@ if not _G.berserkerQOL then
 		end
 	end
 
-	function berserkerQOL:Load()
+	function BerserkerQOL:Load()
 		local save = io.open(self._data_path, 'r')
 		if save then
 			for k, v in pairs(json.decode(save:read('*all')) or {}) do
@@ -47,24 +47,24 @@ if not _G.berserkerQOL then
 		end
 	end
 
-    berserkerQOL.debug_on = false
-    function berserkerQOL:log(effect, text)
-		if berserkerQOL.debug_on and effect ~= "ai_armor_cancer" and effect ~= "ai_hp_cancer" then
+    BerserkerQOL.debug_on = false
+    function BerserkerQOL:log(effect, text)
+		if BerserkerQOL.debug_on and effect ~= "ai_armor_cancer" and effect ~= "ai_hp_cancer" then
         	log(string.format("[BQOL Debug] %s = %s", effect, text))
 		end
     end
 
-	dofile(berserkerQOL._path.."lua/menusetup.lua")
-	dofile(berserkerQOL._path.."lua/tablecheck.lua")
-    dofile(berserkerQOL._path.."lua/paths.lua")
+	dofile(BerserkerQOL._path.."lua/menusetup.lua")
+	dofile(BerserkerQOL._path.."lua/tablecheck.lua")
+    dofile(BerserkerQOL._path.."lua/paths.lua")
 
-	berserkerQOL.hooks_loaded = {}
+	BerserkerQOL.hooks_loaded = {}
 end
 
 local function main()
-	if berserkerQOL[RequiredScript] and not berserkerQOL.hooks_loaded[RequiredScript] then
-		dofile(berserkerQOL[RequiredScript])
-		berserkerQOL.hooks_loaded[RequiredScript] = true
+	if BerserkerQOL[RequiredScript] and not BerserkerQOL.hooks_loaded[RequiredScript] then
+		dofile(BerserkerQOL[RequiredScript])
+		BerserkerQOL.hooks_loaded[RequiredScript] = true
 	end
 end
 

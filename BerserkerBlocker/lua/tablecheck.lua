@@ -7,26 +7,26 @@
 ]]
 
 -- return the blocking status
-function berserkerQOL:check_table(effect)
+function BerserkerQOL:check_table(effect)
     local profile = managers.multi_profile and managers.multi_profile._global._current_profile or 1
-	local save_value = berserkerQOL._data['skillset'..tostring(profile)][effect]
+	local save_value = BerserkerQOL._data['skillset'..tostring(profile)][effect]
     if save_value == 1 or save_value == 0 then
-		save_value = berserkerQOL._data.default[effect]
+		save_value = BerserkerQOL._data.default[effect]
 	end
 
 	if effect == "qf_cancer" then
-		if save_value == 3 and berserkerQOL._has_zerk then
+		if save_value == 3 and BerserkerQOL._has_zerk then
 			return true
 		elseif save_value == 4 then
 			return true
-		elseif save_value == 5 and berserkerQOL._has_qfaced == false then
+		elseif save_value == 5 and BerserkerQOL._has_qfaced == false then
 			return true
 		end
 
 		return false
 	end
 
-	if save_value == 3 and berserkerQOL._has_zerk then
+	if save_value == 3 and BerserkerQOL._has_zerk then
 		return true
 	elseif save_value == 4 then
 		return true
