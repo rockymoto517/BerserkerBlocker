@@ -62,8 +62,8 @@ if not _G.BerserkerQOL then
 end
 
 local function main()
-	if BerserkerQOL[RequiredScript] and not BerserkerQOL.hooks_loaded[RequiredScript] then
-		dofile(BerserkerQOL[RequiredScript])
+	if BerserkerQOL.hook_paths[RequiredScript] and not BerserkerQOL.hooks_loaded[RequiredScript] then
+		dofile(BerserkerQOL.hook_paths[RequiredScript])
 		BerserkerQOL.hooks_loaded[RequiredScript] = true
 	end
 end
