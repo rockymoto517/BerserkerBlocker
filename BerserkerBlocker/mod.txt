@@ -17,10 +17,6 @@
 			"script_path" : "init.lua"
 		},
 		{
-			"hook_id" : "lib/player_actions/skills/playeractiontagteam",
-			"script_path" : "init.lua"
-		},
-		{
 			"hook_id" : "lib/network/handlers/unitnetworkhandler",
 			"script_path" : "init.lua"
 		},
